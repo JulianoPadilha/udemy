@@ -3,7 +3,7 @@ Cursos feito no Udemy
 
 ## Javascript ES6 - Exercício
 
-### forEach
+## forEach
 
 Moving Away from For Loops
 
@@ -69,7 +69,7 @@ images.forEach(function(image){
 });
 ```
 
-### map
+## map
 
 Plucking Values
 
