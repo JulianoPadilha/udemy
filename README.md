@@ -172,4 +172,100 @@ function pluck(array, property) {
 var paints = [ { color: 'red' }, { color: 'blue' }, { color: 'yellow' }];
 
 pluck(paints, 'color');
-````
+```
+
+## filter
+
+Filtering Values
+
+Filter the array of numbers using the filter helper, creating a new array that only contains numbers greater than 50.  Assign this new array to a variable called 'filteredNumbers'.  Don't forget to use the 'return' keyword in the function!
+
+```js
+var numbers = [15, 25, 35, 45, 55, 65, 75, 85, 95];
+
+var filteredNumbers;
+```
+
+### Result
+
+```js
+var numbers = [15, 25, 35, 45, 55, 65, 75, 85, 95];
+
+var filteredNumbers = numbers.filter(function(number){
+    return number > 50;
+});
+
+filteredNumbers;
+```
+
+Handling Permissions with Filter
+
+Filter the array of users, only returning users who have admin level access.  Assign the result to the variable 'filteredUsers'. Don't forget to use the 'return' keyword in the function!
+
+```js
+var users = [
+ { id: 1, admin: true },  
+ { id: 2, admin: false },
+ { id: 3, admin: false },
+ { id: 4, admin: false },
+ { id: 5, admin: true },
+];
+
+var filteredUsers;
+```
+
+### Result
+
+```js
+var users = [
+ { id: 1, admin: true },  
+ { id: 2, admin: false },
+ { id: 3, admin: false },
+ { id: 4, admin: false },
+ { id: 5, admin: true },
+];
+
+// Using a function
+function filteredUsersFunction(user) {
+    return user.admin;
+}
+
+// Using a function
+var filteredUsers = users.filter(filteredUsersFunction);
+
+var filteredUsers = users.filter(function(user) {
+   return user.admin; 
+});
+```
+
+Challenging! Implementing 'reject'.
+
+This is a hard one!  Create a function called 'reject'.  Reject should work in the opposite way of 'filter' - if a function returns 'true', the item should *not* be included in the new array.  Hint: you can reuse filter.
+
+
+For example:
+
+```js
+var numbers = [10, 20, 30];
+var lessThanFifteen = reject(numbers, function(number){
+  return number > 15;
+}); 
+lessThanFifteen // [ 10 ];
+```
+
+```js
+function reject(array, iteratorFunction) {
+  
+}
+```
+
+### Result
+
+```js
+function reject(array, iteratorFunction) {
+  return array.filter(function(item){
+      // Retornar todos os itens que forem falsos
+      return !iteratorFunction(item);
+  });
+}
+```
