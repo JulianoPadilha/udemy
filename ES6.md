@@ -637,3 +637,54 @@ function fullName(firstName, lastName) {
   return `${firstName} ${lastName}`;
 }
 ```
+
+## Arrow function
+
+Refactoring Keyword Functions
+
+The function below uses the 'function' keyword.  There's nothing wrong with using the 'function' keyword here, but it might look a bit nicer if we refactor it to use the fat arrow syntax instead.  
+
+Refactor the code below to use a fat arrow function.  Remember the rules of fat arrow functions:
+
+1. If the function has a single expression in its body, the curly braces and 'return' keyword can be removed
+2. If the function has a single argument, the parentheses around the argument list can be removed
+
+```js
+const fibonacci = function(n) {
+  if (n < 3) return 1;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```
+
+### Result
+
+```js
+const fibonacci = n => {
+  if (n < 3) return 1;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+```
+
+Arrow Functions Aren't Always a Solution
+
+Arrow functions bind the value of 'this' to the surrounding context, and sometimes this isn't the behavior we expect.  The code below has an object that represents a users profile.  The profile has a 'name' currently.  Add another key to this object called 'getName'.  'getName' should be a function that returns the profiles name, using 'this.name'.  Does the solution work with a fat arrow function or will you have to use a function keyword instead?
+
+```js
+const profile = {
+    name: 'Alex'
+};
+```
+
+### Result
+
+```js
+const profile = {
+    name: 'Alex',
+    getName: function() {
+        return this.name;
+    }
+};
+
+profile.getName();
+```
+_The keyword 'this' is a reference to the functions outer lexical environment...it points to the object that contains, and invokes, the function. However, if the function is inside another function, as it is with the 'map' helper, it will not point to the containing object, but instead points to the window object. Many consider it to be a bug of JavaScript, which is why they implemented the arrow function syntax. When using arrow function syntax, the 'this' keyword points to the containing object as expected._
