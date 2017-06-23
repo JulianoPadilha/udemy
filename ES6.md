@@ -688,3 +688,101 @@ const profile = {
 profile.getName();
 ```
 _The keyword 'this' is a reference to the functions outer lexical environment...it points to the object that contains, and invokes, the function. However, if the function is inside another function, as it is with the 'map' helper, it will not point to the containing object, but instead points to the window object. Many consider it to be a bug of JavaScript, which is why they implemented the arrow function syntax. When using arrow function syntax, the 'this' keyword points to the containing object as expected._
+
+## Enhanced Object Literals
+
+Multiple Properties with Enhanced Notation
+
+Refactor to use enhanced literal notation
+
+```js
+const red = '#ff0000';
+const blue = '#0000ff';
+
+const COLORS = { red: red, blue: blue };
+```
+
+### Result
+
+```js
+const red = '#ff0000';
+const blue = '#0000ff';
+
+const COLORS = { red, blue };
+```
+
+Condensing Code with Enhanced Literals
+
+Refactor the following to use enhance object literal syntax
+
+```js
+const fields = ['firstName', 'lastName', 'phoneNumber'];
+      
+const props = { fields: fields };
+```
+
+### Result
+
+```js
+const fields = ['firstName', 'lastName', 'phoneNumber'];
+      
+const props = { fields };
+```
+
+Literals in Functions
+
+Refactor to use enhanced literal notation
+
+```js
+const canvasDimensions = function(width, initialHeight) {
+  const height = initialHeight * 9 /16;
+  return { 
+    width: width, 
+    height: height 
+  };
+}
+```
+
+### Result
+
+```js
+const canvasDimensions = function(width, initialHeight) {
+  const height = initialHeight * 9 /16;
+  return { 
+    width, 
+    height 
+  };
+}
+```
+
+Refactor to use enhanced literal notation
+
+```js
+const color = 'red';
+
+const Car = {
+  color: color,
+  drive: function() {
+    return 'Vroom!';
+  },
+  getColor: function() {
+    return this.color;
+  }
+};
+```
+
+### Result
+
+```js
+const color = 'red';
+
+const Car = {
+  color,
+  drive() {
+    return 'Vroom!';
+  },
+  getColor() {
+    return this.color;
+  }
+};
+```
