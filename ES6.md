@@ -786,3 +786,57 @@ const Car = {
   }
 };
 ```
+
+## Default Function Arguments
+
+Using Default Arguments
+
+Refactor the following code to use default function arguments.  Be sure to remove any unused code after you refactor it.
+
+```js
+function sum(a, b) {
+  if (a === undefined) {
+    a = 0; 
+  }
+  
+  if (b === undefined) {
+    b = 0; 
+  }
+  
+  return a + b;
+}
+```
+
+### Result
+
+```js
+function sum(a = 0, b = 0) {
+  return a + b;
+}
+```
+
+Dumping Unused Code
+
+Refactor the following code to use default function arguments.  Be sure to remove any unused code after you refactor it.
+
+```js
+function addOffset(style) {
+  if (!style) {
+    style = {}; 
+  }
+  
+  style.offset = '10px';
+  
+  return style;
+}
+```
+
+### Result
+
+```js
+function addOffset(style = {}) {
+  style.offset = '10px';
+  
+  return style;
+}
+```
