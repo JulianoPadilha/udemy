@@ -840,3 +840,69 @@ function addOffset(style = {}) {
   return style;
 }
 ```
+
+## Rest and Spread operators
+
+Many, Many Arguments
+
+Refactor the following function to use the rest operator.  Remember, an argument using the rest operator does *not* need to be called 'rest'.
+
+```js
+function product(a, b, c, d, e) {
+  var numbers = [a,b,c,d,e];
+  
+  return numbers.reduce(function(acc, number) {
+    return acc * number;
+  }, 1)
+}
+```
+
+### Result
+
+```js
+function product(...numbers) {
+  //var numbers = [a,b,c,d,e];
+  
+  return numbers.reduce(function(acc, number) {
+    return acc * number;
+  }, 1);
+}
+```
+
+Spreadin' Arrays
+
+Refactor the following to use the spread operator.
+
+```js
+function join(array1, array2) {
+  return array1.concat(array2);
+}
+```
+
+### Result
+
+```js
+function join(array1, array2) {
+  //return array1.concat(array2);
+  return [...array1, ...array2];
+}
+```
+
+Mixing Rest and Spread
+
+Refactor the following to use the only the rest operator
+
+```js
+function unshift(array, a, b, c, d, e) {
+  return [a, b, c, d, e].concat(array);
+}
+```
+
+### Result
+
+```js
+function unshift(array, ...rest) {
+  //return [a, b, c, d, e].concat(array);
+  return [...rest, ...array];
+}
+```
