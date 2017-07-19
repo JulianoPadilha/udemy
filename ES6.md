@@ -1009,3 +1009,121 @@ function double() {
     
 }
 ```
+
+Recursion with Destructuring
+
+This one is probably the hardest exercise in the entire course!  
+
+Use array destructuring, recursion, and the rest/spread operators to create a function 'double' that will return a new array with all values inside of it multiplied by two.  Do not use any array helpers! Sure, the map, forEach, or reduce helpers would make this extremely easy but give it a shot the hard way anyways :)
+
+Input:
+
+double([1,2,3])
+
+Output
+
+[2,4,6]
+
+Hint: Don't forget that with recursion you must add a base case so you don't get an infinite call stack.  For example, if 'const [ number, ...rest ] = numbers' and number is undefined do you need to keep walking through the array?
+
+```js
+const numbers = [1, 2, 3];
+
+function double() {
+    
+}
+```
+
+### Result
+
+```js
+const numbers = [1, 2, 3];
+let finalResults = [];
+
+function double(numbers) {    
+    const [ number, ...rest ] = numbers;
+    if(number === undefined) {
+        return finalResults;
+    } else {
+        finalResults.push(number*2);
+        return double([...rest]);
+    } 
+}
+```
+
+## Classes
+
+Game Classes
+
+You are a game developer tasked with setting up some basic classes for a new game you are working on.  Create a class called 'Monster'.  In the constructor, you'll need to do some basic setup for Monster whenever they are created. 
+
+Initialize the Monster's health to 100.
+The constructor will be called with an 'options' object that has a 'name' property.  Assign the 'name' to the Monster
+
+```js
+class Monster {
+  
+}
+```
+
+### Result
+
+```js
+class Monster {
+  constructor(options) {
+      this.health = 100;
+      this.name = options.name;
+  }
+}
+
+const monster = new Monster({ name: 'Jade' });
+monster;
+```
+
+Subclassing Monsters
+
+Now that you have a monster created, create a subclass of the Monster called Snake.  
+
+The Snake should have a 'bite' method.  The only argument to this method is another instance of a Snake.
+The instance of Snake that is passed in should have their health deducated by 10
+
+```js
+class Monster {
+  constructor(options) {
+    this.health = 100;
+    this.name = options.name;
+  }
+}
+
+class Snake {
+  
+}
+```
+
+
+### Result
+
+```js
+class Monster {
+  constructor(options) {
+    this.health = 100;
+    this.name = options.name;
+  }
+}
+
+class Snake extends Monster {
+    constructor(options) {
+        super(options);
+    }
+    
+    bite(snake) {
+        return snake.health -= 10;
+    }
+}
+
+const snake1 = new Snake({ name: 'Fred' });
+const snake2 = new Snake({ name: 'Willy' });
+snake1.bite(snake2);
+console.log(snake1);
+console.log(snake2);
+```
