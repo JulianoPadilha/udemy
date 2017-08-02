@@ -6,3 +6,5 @@ Cursos feito no Udemy
 ### SVG
 
 ### Vue JS 2
+
+### React with Redux
