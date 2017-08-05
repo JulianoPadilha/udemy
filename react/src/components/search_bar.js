@@ -20,7 +20,12 @@ import React from 'react';
 // É obrigatório usar o render()
 class SearchBar extends React.Component {
 	render() {
-		return <input />;
+		return <input onChange={ this.onInputChange } />;
+	}
+
+	// Event handler para capturar o valor digitado no input de texto
+	onInputChange(event) {
+		console.log(event.target.value);
 	}
 }
 
