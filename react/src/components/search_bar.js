@@ -19,13 +19,28 @@ import React from 'react';
 // Criamos uma class component e extendemos as funcionalidades do React para usar dentro da classe.
 // É obrigatório usar o render()
 class SearchBar extends React.Component {
+	// State é um plain javascript object que existe em todos os componentes que são baseados em classes.
+	// Cada instância de um componente baseado em classe tem sua própria cópia de states.
+	// Nós inicializamos um state definindo o método construtor e declaramos o state com o this.state
+	// Neste exemplo usamos o nome da propriedade do nosso state como term, mas pode ser qualquer outro nome
+	constructor(props) {
+		super(props);
+
+		this.state = { term: '' };
+	}
+
 	render() {
-		return <input onChange={ this.onInputChange } />;
+		return (
+			<div>
+				<input onChange={ this.onInputChange.bind(this) } />
+				The value of state is: { this.state.term }
+			</div>
+		);
 	}
 
 	// Event handler para capturar o valor digitado no input de texto
 	onInputChange(event) {
-		console.log(event.target.value);
+		return this.setState({ term: event.target.value });
 	}
 }
 
