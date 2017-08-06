@@ -5,6 +5,7 @@ import YTSearch from 'youtube-api-search';
 
 // Importa o componente criado passando seu diretório de origem
 import SearchBar from './components/search_bar';
+import VideoList from './components/video_list.js';
 
 // API KEY Youtube
 const API_KEY = 'AIzaSyCQUQ8BS6Xvi0owKSLjZ8AoWEDe5o_WD_8';
@@ -28,6 +29,7 @@ class App extends React.Component {
 		return (
 			<div>
 				<SearchBar />
+				<VideoList videos={ this.state.videos } />
 			</div>
 		);
 	}
