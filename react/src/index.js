@@ -37,3 +37,4 @@ class App extends React.Component {
 
 // Renderiza o componente no DOM passando uma instância dele e onde queremos renderizá-lo
 ReactDOM.render(<App />, document.querySelector('.container'));
+
