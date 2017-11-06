@@ -1,6 +1,6 @@
 // Importa o React para ser usado na intepretação do
 // componente JSX (React transforma ele em React.createElement(...))
-import React from 'react';
+import React, { Component } from 'react';
 
 // Duas formas de criar um componente (function component e class component)
 // EXPLICAÇÃO:
@@ -18,7 +18,7 @@ import React from 'react';
 
 // Criamos uma class component e extendemos as funcionalidades do React para usar dentro da classe.
 // É obrigatório usar o render()
-class SearchBar extends React.Component {
+class SearchBar extends Component {
 	// State é um plain javascript object que existe em todos os componentes que são baseados em classes.
 	// Cada instância de um componente baseado em classe tem sua própria cópia de states.
 	// Nós inicializamos um state definindo o método construtor e declaramos o state com o this.state
@@ -29,19 +29,26 @@ class SearchBar extends React.Component {
 		this.state = { term: '' };
 	}
 
+	// Event handler para capturar o valor digitado no input de texto
+	onInputChange(event) {
+		return this.setState({ term: event.target.value });
+	}
+
 	render() {
 		return (
 			<div>
 				<input
+					style={styles.search}
 					value={ this.state.term }
 					onChange={ this.onInputChange.bind(this) } />
 			</div>
 		);
 	}
+}
 
-	// Event handler para capturar o valor digitado no input de texto
-	onInputChange(event) {
-		return this.setState({ term: event.target.value });
+const styles = {
+	search: {
+		width: "500px"
 	}
 }
 
