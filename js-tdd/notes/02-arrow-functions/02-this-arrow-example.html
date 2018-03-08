@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03 - This Arrow Example</title>
+</head>
+<body>
+
+<button id="btn">Make my sandwich!</button>
+
+<script>
+const sandwich = {
+	bread: 'white',
+	cheese: 'cheddar',
+
+	prepare: function() {
+		return `I want a sandwich with ${this.bread} bread and ${this.cheese}`;
+	},
+
+// Neste caso utilizar Arrow Function é a melhor decisão, pois queremos acessar o objeto do contexto que é "sandwich", e como temos uma função dentro de uma função, seu uso é adequado. Caso contrário teríamos que usar a solução "const that = this;"
+	make: function() {
+		window.setTimeout(() => {
+			console.log(this.prepare());
+		});
+	}
+
+};
+
+const btn = document.querySelector('#btn');
+
+btn.addEventListener('click', () => {
+	sandwich.make();
+});
+</script>
+</body>
+</html>

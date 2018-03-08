@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02 - This Arrow Function</title>
+</head>
+<body>
+
+<button id="btn">Click me!</button>
+
+<script>
+const btn = document.querySelector('#btn');
+
+// Neste caso utilizar Arrow Funtcion não é a melhor decisão, pois o escopo que queremos é o do objeto "btn" e não do objeto global "window"
+btn.addEventListener('click', function() {
+	console.log(this);
+});
+</script>
+</body>
+</html>
