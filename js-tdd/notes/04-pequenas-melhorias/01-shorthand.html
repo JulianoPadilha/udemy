@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01 - Uses Template Literals</title>
+</head>
+<body>
+
+<script>
+let firstName = 'Juliano';
+let surname = 'Padilha';
+let age = 26;
+
+// Se a propriedade e a variável tiverem o mesmo nome, podemos deixar apenas um nome.
+const person = {
+	firstName,
+	surname,
+	age,
+
+// Com o shorthand não precisamos mais colocar o 'function' quando criamos uma função dentro de um aobjeto
+	hello() {
+		console.log('Hello!');
+	}
+};
+
+console.log(person);
+
+person.hello();
+</script>
+</body>
+</html>
