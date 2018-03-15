@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01 - Spread Operator Intro</title>
+</head>
+<body>
+
+<script>
+let front = ['react', 'vue', 'angular'];
+let back = ['php', 'node', 'ruby'];
+
+// let fullStack = [];
+// fullStack = fullStack.concat(front);
+// fullStack.push('RxJS');
+// fullStack = fullStack.concat(back);
+//
+
+let fullStack = [...front, 'RxJS', ...back];
+console.log(fullStack);
+</script>
+</body>
+</html>
