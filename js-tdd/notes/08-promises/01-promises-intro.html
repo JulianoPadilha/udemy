@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01 - Promises Intro</title>
+</head>
+<body>
+	<p>Uma Promise é um objeto com uma ação que ainda não foi finalizada, mas que tem como no futuro ser finalizada de alguma forma.</p>
+	<p>É uma promessa de que alguma coisa vai ser feita.</p>
+	<p>A Promise é importante para trabalhar com dados assincronos.</p>
+
+<script>
+const defer = new Promise((resolve, reject) => {
+	setTimeout(() => {
+		if(true) {
+			resolve('Hello! It works!');
+		} else {
+			reject('Error!');
+		}
+	}, 2000);
+});
+
+defer
+	.then((data) => {
+		console.log(data);
+		return 'foo';
+	})
+	.then((data) => console.log(data))
+	.catch((err) => console.log(err));
+</script>
+</body>
+</html>
