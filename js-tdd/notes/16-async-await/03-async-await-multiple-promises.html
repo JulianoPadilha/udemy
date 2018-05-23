@@ -18,26 +18,18 @@ Vantagens de usar async/await
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>02 - Async/Await Error Handler</title>
+	<title>03 - Async/Await Multiple Promises</title>
 </head>
 <body>
 
 <script>
-	async function getPosts() {
-		try {
-			const response = await fetch('https://willianjusten.com.br/search.json');
-			const data = await response.json();
-
-			return data.map(post => {
-				console.log(post.title);
-			});
-		}
-		catch(err) {
-			console.error('Nooooooo, we got an error!', err);
-		}
+	async function getUsers(users) {
+		const promises = users.map(user => fetch(`https://api.github.com/users/${user}`).then(r => r.json()));
+		const people = await Promise.all(promises);
+		console.log(people.map(p => p));
 	}
 
-	getPosts();
+	getUsers(['julianopadilha', 'willianjusten']);
 </script>
 </body>
 </html>
