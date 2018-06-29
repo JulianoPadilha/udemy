@@ -1,6 +1,10 @@
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const nodeENV = process.env.NODE_ENV || 'production';
 
 module.exports = {
+	devtool: 'source-map',
+	mode: 'development',
 	entry: {
 		filename: './app.js'
 	},
@@ -11,7 +15,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.js$/,
-				exclude: '/node_modules/',
+				exclude: /node_modules/,
 				loader: 'babel-loader',
 				query: {
 					presets: [
@@ -20,5 +24,17 @@ module.exports = {
 				}
 			}
 		]
-	}
+	},
+	plugins: [
+		new UglifyJsPlugin({
+			uglifyOptions: {
+				compress: { inline: false },
+				output: { comments: false, beautify: false},
+				sourceMap: true
+			}
+		}),
+		new webpack.DefinePlugin({
+			'process.env': { NODE_ENV: JSON.stringify(nodeENV) }
+		})
+	]
 }

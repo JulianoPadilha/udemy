@@ -13,6 +13,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-es2015-native-modules": "^6.9.4",
+    "uglifyjs-webpack-plugin": "^1.2.7",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.4"
   },
