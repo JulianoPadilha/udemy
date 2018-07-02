@@ -4,7 +4,7 @@
   "description": "Biblioteca do curso de JS com TDD na pŕatica",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "prepush": "npm run lint"
   },
@@ -24,9 +24,11 @@
   },
   "homepage": "https://github.com/JulianoPadilha/udemy#readme",
   "devDependencies": {
+    "chai": "^4.1.2",
     "eslint": "^4.18.2",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
-    "husky": "^0.14.3"
+    "husky": "^0.14.3",
+    "mocha": "^5.2.0"
   }
 }
