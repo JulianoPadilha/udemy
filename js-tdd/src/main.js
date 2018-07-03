@@ -1,9 +1,9 @@
 module.exports = {
-  sum() {  },
+  sum() {},
 
-  sub() {  },
+  sub() {},
 
-  mult() {  },
+  mult() {},
 
-  div() {  }
-}
+  div() {},
+};
