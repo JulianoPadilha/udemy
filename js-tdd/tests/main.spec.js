@@ -1,3 +1,5 @@
+const expect = require('chai').expect;
+
 // Todos testes começa com um describe
 // Serve para separar os métodos da nossa classe
 describe('Main', () => {
@@ -34,21 +36,29 @@ describe('Main', () => {
   // content.only
   context('Case 2', () => {
     // It é onde de fato vai rodar noso test
+    it('should be an array', () => {
+      expect(arr).to.be.a('array');
+    });
+
     it('should have a size of 4 when push another value to the array', () => {
       arr.push(4);
-      console.log(arr.length); //4
+      expect(arr).to.have.lengthOf(4);
+      // console.log(arr.length); //4
       // O que a gente espera que aconteça
       // Entra de dados / método sum(2,2)
       // Espera retornar (4) => true | (3) => false => broken test 
     });
 
     it('should remove the value 3 when use pop in the array', () => {
-      console.log(arr.pop() === 3); //true
+      arr.pop();
+      expect(arr).to.not.include(3);
+      // console.log(arr.pop() === 3); //true
     });
 
     it('should have a size of 2 when pop a value from the array', () => {
       arr.pop();
-      console.log(arr.length); //2
+      expect(arr).to.have.lengthOf(2);
+      // console.log(arr.length); //2
     });
   });
 });
