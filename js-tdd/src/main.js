@@ -13,5 +13,5 @@ module.exports = {
 
   div(num1, num2) {
     return (num2 ===0) ? 'Não é possível divisão por zero!' : num1 / num2;
-  },
+  }
 };
