@@ -1,64 +1,61 @@
-const expect = require('chai').expect;
+import { expect } from 'chai';
+import { sum, sub, mult, div } from '../src/main';
 
-// Todos testes começa com um describe
-// Serve para separar os métodos da nossa classe
-describe('Main', () => {
-  let arr = [];
-  // Roda uma vez, antes do bloco
-  before(() => {
-    // console.log('before');
-  });
-  // Roda uma vez, depois do bloco
-  after(() => {
-    // console.log('before');
-  });
-  // Roda todas a vezes, antes de CADA bloco
-  beforeEach(() => {
-    arr = [1, 2, 3];
-  });
-  // Roda todas a vezes, depois de CADA bloco
-  afterEach(() => {
-    // console.log('afterEach');
-  });
+describe('Calc', () => {
 
-  // Context define o contexto do nosso teste
-  context('Case 1', () => {
-    // It é onde de fato vai rodar noso test
-    it.skip('should happen...', () => {
-      // O que a gente espera que aconteça
-      // Entra de dados / método sum(2,2)
-      // Espera retornar (4) => true | (3) => false => broken test 
-      throw new Error('just an error');
+  // Smoke tests
+  describe('Smoke tests', () => {
+
+    it('should exist the method `sum`', () => {
+      expect(sum).to.exist;
+      expect(sum).to.be.a('function');
+    });
+
+    it('should exist the method `sub`', () => {
+      expect(sub).to.exist;
+      expect(sub).to.be.a('function');
+    });
+
+    it('should exist the method `mult`', () => {
+      expect(mult).to.exist;
+      expect(mult).to.be.a('function');
+    });
+
+    it('should exist the method `div`', () => {
+      expect(div).to.exist;
+      expect(div).to.be.a('function');
     });
   });
 
-  // Only usado para testar apenas uma parte do test que estamos fazendo
-  // content.only
-  context('Case 2', () => {
-    // It é onde de fato vai rodar noso test
-    it('should be an array', () => {
-      expect(arr).to.be.a('array');
-    });
-
-    it('should have a size of 4 when push another value to the array', () => {
-      arr.push(4);
-      expect(arr).to.have.lengthOf(4);
-      // console.log(arr.length); //4
-      // O que a gente espera que aconteça
-      // Entra de dados / método sum(2,2)
-      // Espera retornar (4) => true | (3) => false => broken test 
-    });
-
-    it('should remove the value 3 when use pop in the array', () => {
-      arr.pop();
-      expect(arr).to.not.include(3);
-      // console.log(arr.pop() === 3); //true
-    });
-
-    it('should have a size of 2 when pop a value from the array', () => {
-      arr.pop();
-      expect(arr).to.have.lengthOf(2);
-      // console.log(arr.length); //2
+  describe('Sum', () => {
+    it('should return 4 when `sum(2,2)`', () => {
+      expect(sum(2,2)).to.be.equal(4);
     });
   });
-});
+
+  describe('Sub', () => {
+    it('should return 4 when `sub(6,2)`', () => {
+      expect(sub(6,2)).to.be.equal(4);
+    });
+
+    it('should return -4 when `sub(6,10)`', () => {
+      expect(sub(6,10)).to.be.equal(-4);
+    });
+  });
+
+  describe('Mult', () => {
+    it('should return 4 when `mult(2,2)`', () => {
+      expect(mult(2,2)).to.be.equal(4);
+    });
+  });
+
+  describe('Div', () => {
+    it('should return `Não é possível divisão por zero!` when divide by zero', () => {
+      expect(div(8,0)).to.be.equal('Não é possível divisão por zero!');
+    });
+
+    it('should return 4 when `div(8,2)`', () => {
+      expect(div(8,2)).to.be.equal(4);
+    });
+  });
+}); 
